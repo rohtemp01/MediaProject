@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MP_app</string>
+
+    <string name="addAniv">기념일 추가하기</string>
+    <string name="signUp">회원가입</string>
+    <string name="signIn">로그인</string>
+    <string name="sayHello">이미 아이디가 있으신가요?</string>
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+
+    <string name="send">Send</string>
+    <string name="title_activity_room_list">RoomList</string>
+    <string name="enrollment">Sign Up</string>
+    <string name="AIzaSyCQ7e1cglKeJDLU8rlzKKeKLoESuemCAyM">apiKey</string>
+</resources>

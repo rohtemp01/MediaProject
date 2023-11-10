@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MP_app</string>
+
+    <string name="addAniv">Ajouter un Anniversaire</string>
+    <string name="signUp">s\'inscrire</string>
+    <string name="signIn">s\'identifier</string>
+    <string name="sayHello">Avez-vous déjà une pièce d\'identité</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+
+
+    <string name="send">Send</string>
+    <string name="title_activity_room_list">RoomList</string>
+    <string name="enrollment">Sign Up</string>
+    <string name="AIzaSyCQ7e1cglKeJDLU8rlzKKeKLoESuemCAyM">apiKey</string>
+</resources>
