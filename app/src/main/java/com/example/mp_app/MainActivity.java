@@ -12,13 +12,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setContentView(R.layout.act_main);
+
         //Display splash and move to the other Act.
         setContentView(R.layout.act_splash);
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(this,AuthAct.class);
             startActivity(intent);
         }, SPLASH_DURATION);
-
-        //setContentView(R.layout.act_main);
     }
 }
