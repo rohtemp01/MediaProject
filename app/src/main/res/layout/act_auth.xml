@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash"
-    tools:context="com.example.mp_app.AuthAct">
+    tools:context="com.example.mp_app.L1_Intro.AuthAct">
 
 
     <ViewFlipper
