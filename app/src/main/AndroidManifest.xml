@@ -35,7 +35,7 @@
             android:name=".Tools.ViewPager.FragmentCameraX"
             android:exported="false" />
         <activity
-            android:name=".L2_Main.CameraXAct"
+            android:name=".Tools.Deprecated.CameraXAct"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

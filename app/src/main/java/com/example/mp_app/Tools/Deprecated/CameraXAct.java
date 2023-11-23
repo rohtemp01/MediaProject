@@ -1,4 +1,4 @@
-package com.example.mp_app.L2_Main;
+package com.example.mp_app.Tools.Deprecated;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 

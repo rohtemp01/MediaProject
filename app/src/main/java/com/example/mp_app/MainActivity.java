@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.mp_app.L1_Intro.AuthAct;
 import com.example.mp_app.L2_Main.L2Act;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,12 +16,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.act_main);
 
-        //Display splash and move to the other Act.
+        //Display splash
         setContentView(R.layout.act_splash);
 
-        //Real Code
+        //스플래시 표시하고 다음 액티비티로 가기
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(this, L2Act.class);
+            Intent intent = new Intent(this, AuthAct.class);
             startActivity(intent);
         }, SPLASH_DURATION);
     }
