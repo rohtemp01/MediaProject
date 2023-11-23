@@ -9,7 +9,6 @@ import android.os.Handler;
 import com.example.mp_app.L2_Main.L2Act;
 
 public class MainActivity extends AppCompatActivity {
-    static boolean splashed = false;
     private final int SPLASH_DURATION = 2000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Display splash and move to the other Act.
         setContentView(R.layout.act_splash);
-
-        //cheatKey
-        //Intent intent = new Intent(this, CameraXAct.class);
-        //startActivity(intent);
 
         //Real Code
         new Handler().postDelayed(() -> {
