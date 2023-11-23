@@ -14,10 +14,15 @@
         android:theme="@style/Theme.MP_app"
         tools:targetApi="31">
         <activity
-            android:name=".FragmentCameraX"
+            android:name=".L2_Main.L2Act"
             android:exported="false" />
         <activity
-            android:name=".PagerCameraXAct"
+            android:name=".Tools.ViewPager.FragmentChat"
+            android:exported="false"
+            android:label="@string/title_activity_fragment_chat"
+            android:theme="@style/Theme.MP_app.NoActionBar" />
+        <activity
+            android:name=".Tools.ViewPager.FragmentCameraX"
             android:exported="false" />
         <activity
             android:name=".L2_Main.CameraXAct"

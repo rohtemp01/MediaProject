@@ -6,8 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.mp_app.L1_Intro.AuthAct;
-import com.example.mp_app.L2_Main.CameraXAct;
+import com.example.mp_app.L2_Main.L2Act;
 
 public class MainActivity extends AppCompatActivity {
     static boolean splashed = false;
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Real Code
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(this, CameraXAct.class);
+            Intent intent = new Intent(this, L2Act.class);
             startActivity(intent);
         }, SPLASH_DURATION);
     }

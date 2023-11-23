@@ -1,4 +1,4 @@
-package com.example.mp_app.Tools;
+package com.example.mp_app.Tools.ViewPager;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,7 +14,16 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return new FragmentCameraX();
+//        switch( position ){
+//            case 0:
+//                return new FragmentCameraX();
+//            case 1:
+//                return new FragmentCameraX();
+//            case 2:
+//                return new FragmentCameraX();
+//        }
+//        return null;
     }
 
     @Override
