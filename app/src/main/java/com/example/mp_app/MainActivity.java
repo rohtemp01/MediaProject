@@ -10,7 +10,7 @@ import com.example.mp_app.L1_Intro.AuthAct;
 import com.example.mp_app.L2_Main.L2Act;
 
 public class MainActivity extends AppCompatActivity {
-    private final int SPLASH_DURATION = 2000;
+    private final int SPLASH_DURATION = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         //스플래시 표시하고 다음 액티비티로 가기
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(this, AuthAct.class);
+            Intent intent = new Intent(this, L2Act.class);
             startActivity(intent);
         }, SPLASH_DURATION);
     }

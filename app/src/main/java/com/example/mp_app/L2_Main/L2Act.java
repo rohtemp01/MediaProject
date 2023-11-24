@@ -18,12 +18,13 @@ public class L2Act extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_l2);
-        btn = findViewById(R.id.button);
-        btn.setOnClickListener(event->{
-
-        });
         viewPager = findViewById(R.id.viewpager);
         pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
+        btn = findViewById(R.id.button);
+        btn.setOnClickListener(event->{
+            System.out.println(viewPager.getCurrentItem());
+        });
+
     }
 }

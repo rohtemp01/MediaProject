@@ -27,12 +27,12 @@
             android:name=".L2_Main.L2Act"
             android:exported="false" />
         <activity
-            android:name=".Tools.ViewPager.FragmentChat"
+            android:name=".Tools.ViewPager.Fragment_1_Chat"
             android:exported="false"
             android:label="@string/title_activity_fragment_chat"
             android:theme="@style/Theme.MP_app.NoActionBar" />
         <activity
-            android:name=".Tools.ViewPager.FragmentCameraX"
+            android:name=".Tools.ViewPager.Fragment_0_CameraX"
             android:exported="false" />
         <activity
             android:name=".Tools.Deprecated.CameraXAct"

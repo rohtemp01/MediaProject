@@ -26,12 +26,12 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
 
-public class FragmentCameraX extends Fragment {
+public class Fragment_0_CameraX extends Fragment {
     PreviewView previewView;//null ptr error
     private ImageCapture imageCapture;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
-    public FragmentCameraX() {
+    public Fragment_0_CameraX() {
         // required empty public constructor.
     }
 
