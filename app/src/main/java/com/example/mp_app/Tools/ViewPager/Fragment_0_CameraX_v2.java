@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
+import androidx.camera.view.LifecycleCameraController;
 import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -24,23 +26,32 @@ import com.example.mp_app.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
-public class Fragment_0_CameraX_v2 extends Fragment {
+public class Fragment_0_CameraX_v2 extends Fragment implements LifecycleOwner{
     PreviewView previewView;//null ptr error
     private ImageCapture imageCapture;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
+    LifecycleCameraController controller;
     public Fragment_0_CameraX_v2() {
         // Required empty public constructor
     }
 
+    private void exit(){
+        controller = new LifecycleCameraController(getContext());
+        controller.bindToLifecycle((LifecycleOwner) getContext());
+    }
+    public void end(){
+        controller.unbind();
+    }
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tools_frag_camerax, container, false);
+        View view = inflater.inflate(R.layout.tools_camerax, container, false);
 
         //getActivity()  vs getContext()??
         if (ContextCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.CAMERA ) != PackageManager.PERMISSION_GRANTED) {
@@ -48,6 +59,8 @@ public class Fragment_0_CameraX_v2 extends Fragment {
         }
 
         previewView = view.findViewById(R.id.previewView);
+        controller = new LifecycleCameraController(getContext());
+        //controller.bind
         cameraProviderFuture = ProcessCameraProvider.getInstance(view.getContext());
         cameraProviderFuture.addListener(() -> {
             try {
@@ -66,8 +79,9 @@ public class Fragment_0_CameraX_v2 extends Fragment {
             }
         }, ContextCompat.getMainExecutor(view.getContext()));
 
-
-        return (ViewGroup) inflater.inflate(R.layout.tools_frag_camerax_v2, container, false);
+        exit();
+        previewView.setController(controller);
+        return view;
     }
 
     void bindPreview(@NonNull ProcessCameraProvider cameraProvider) {
@@ -82,4 +96,24 @@ public class Fragment_0_CameraX_v2 extends Fragment {
 
         Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview);
     }
+
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+//    public class CustomLifecycle  implements LifecycleOwner {
+//        private LifecycleRegistry lifecycleRegistry;
+//        public CustomLifecycle () {
+//            lifecycleRegistry = new LifecycleRegistry(this);
+//            lifecycleRegistry.markState(Lifecycle.State.CREATED);
+//        }
+//        public void doOnResume() {
+//            lifecycleRegistry.markState(Lifecycle.State.RESUMED);
+//        }
+//        @NonNull
+//        @Override
+//        public Lifecycle getLifecycle() {
+//            return lifecycleRegistry;
+//        }
+//    }
 }
