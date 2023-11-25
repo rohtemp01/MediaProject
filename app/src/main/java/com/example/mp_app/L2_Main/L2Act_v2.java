@@ -27,11 +27,11 @@ public class L2Act_v2 extends FragmentActivity {
         viewPager2.setAdapter(pagerAdapter);
         //fragment = (Fragment_0_CameraX_v2) getSupportFragmentManager().findFragmentById(R.id.frag_camerax);
 
-        btn = findViewById(R.id.button);
-        btn.setOnClickListener(e->{
-            System.out.println(viewPager2.getCurrentItem());
-            viewPager2.setCurrentItem(1);
-            //fragment.work();
-        });
+//        btn = findViewById(R.id.button);
+//        btn.setOnClickListener(e->{
+//            System.out.println(viewPager2.getCurrentItem());
+//            viewPager2.setCurrentItem(1);
+//            fragment.work();
+//        });
     }
 }

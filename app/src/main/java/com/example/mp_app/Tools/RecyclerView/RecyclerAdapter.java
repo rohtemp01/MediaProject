@@ -39,15 +39,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
     @Override
     public int getItemViewType(int position){
-        switch(recyclerData.get(position).user_num){
-            case recyclerData.get(position).focused == true: {
-                return FOCUSED_MESSAGE;
-            }
-            case PreferenceUtil.getStringValue(context,"myNum"):{
-                return CHAT_SELF;
-            }
-            default: return CHAT_RECEIVED;
-        }
+//        switch(recyclerData.get(position).user_num){
+//            case recyclerData.get(position).focused == true: {
+//                return FOCUSED_MESSAGE;
+//            }
+//            case PreferenceUtil.getStringValue(context,"myNum"):{
+//                return CHAT_SELF;
+//            }
+//            default: return CHAT_RECEIVED;
+//        }
+        return 0;
     }
 
     @Override
