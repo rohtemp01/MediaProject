@@ -6,27 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".Tools.ViewPager.Fragment_0_CameraX">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="frag_camera_x"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.438"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <Button
+        android:id="@+id/image_capture_button"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="50dp"
+        android:elevation="2dp"
+        android:text="a"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/vertical_centerline" />
+
+    <Button
+        android:id="@+id/video_capture_button"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="50dp"
+        android:elevation="2dp"
+        android:text="b"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vertical_centerline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_centerline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".50" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

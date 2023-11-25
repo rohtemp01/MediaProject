@@ -23,7 +23,9 @@ public class L2Act extends AppCompatActivity {
         viewPager.setAdapter(pagerAdapter);
         btn = findViewById(R.id.button);
         btn.setOnClickListener(event->{
-            System.out.println(viewPager.getCurrentItem());
+            System.out.println("From " + viewPager.getCurrentItem());
+            viewPager.setCurrentItem(1);
+            System.out.println("To " + viewPager.getCurrentItem());
         });
 
     }

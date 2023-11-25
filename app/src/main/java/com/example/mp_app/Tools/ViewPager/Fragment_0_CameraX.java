@@ -44,7 +44,7 @@ public class Fragment_0_CameraX extends Fragment {
     //fragment's view
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.act_camerax, container, false);
+        View view = inflater.inflate(R.layout.tools_frag_camerax, container, false);
         //TextView textView = view.findViewById(R.id.textView2);
 
         //setContentView(R.layout.act_camerax);
