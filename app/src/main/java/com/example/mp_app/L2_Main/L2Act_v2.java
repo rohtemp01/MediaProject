@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.mp_app.R;
+import com.example.mp_app.Tools.ViewPager.Fragment_0_CameraX_v2;
 import com.example.mp_app.Tools.ViewPager.Slider_PagerAdapter;
 
 public class L2Act_v2 extends FragmentActivity {
@@ -29,5 +30,7 @@ public class L2Act_v2 extends FragmentActivity {
             System.out.println(viewPager2.getCurrentItem());
             viewPager2.setCurrentItem(1);
         });
+        Fragment_0_CameraX_v2 fragment = (Fragment_0_CameraX_v2) getSupportFragmentManager().findFragmentById(R.id.frag_camerax);
+        fragment.work();
     }
 }

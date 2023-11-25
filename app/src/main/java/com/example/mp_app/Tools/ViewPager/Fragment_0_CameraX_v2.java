@@ -2,6 +2,8 @@ package com.example.mp_app.Tools.ViewPager;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 
+import static androidx.core.content.FileProvider.Api21Impl.getExternalMediaDirs;
+
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
+import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.LifecycleCameraController;
@@ -25,6 +28,7 @@ import androidx.lifecycle.LifecycleOwner;
 import com.example.mp_app.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import java.io.File;
 import java.util.concurrent.ExecutionException;
 public class Fragment_0_CameraX_v2 extends Fragment implements LifecycleOwner{
     PreviewView previewView;//null ptr error
@@ -35,12 +39,19 @@ public class Fragment_0_CameraX_v2 extends Fragment implements LifecycleOwner{
         // Required empty public constructor
     }
 
-    private void exit(){
-        controller = new LifecycleCameraController(getContext());
-        controller.bindToLifecycle((LifecycleOwner) getContext());
+    public void work(){
+        File file = new File(getExternalMediaDirs()[0], System.currentTimeMillis() + ".jpg");
+        imageCapture.takePicture(ContextCompat.getMainExecutor(getContext()), new ImageCapture.OnImageCapturedCallback() {
+            @Override
+            public void onCaptureSuccess(@NonNull ImageProxy image) {
+                super.onCaptureSuccess(image);
+                // get and do with image
+                image.close();
+            }
+        });
     }
-    public void end(){
-        controller.unbind();
+
+    private File[] getExternalMediaDirs() {
     }
 
     @Override
@@ -79,8 +90,11 @@ public class Fragment_0_CameraX_v2 extends Fragment implements LifecycleOwner{
             }
         }, ContextCompat.getMainExecutor(view.getContext()));
 
-        exit();
-        previewView.setController(controller);
+        //
+        controller = new LifecycleCameraController(getContext());
+        controller.bindToLifecycle((LifecycleOwner) getContext());
+        //
+
         return view;
     }
 
