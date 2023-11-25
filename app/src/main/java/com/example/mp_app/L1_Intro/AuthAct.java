@@ -15,6 +15,7 @@ public class AuthAct extends AppCompatActivity {
     Button cheatBtn;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.act_auth);
         signUpBtn = findViewById(R.id.signUp_btn);
         signInBtn = findViewById(R.id.signIn_btn);
