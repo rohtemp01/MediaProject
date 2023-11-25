@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
@@ -25,28 +24,23 @@ import com.example.mp_app.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
-
-public class Fragment_0_CameraX extends Fragment {
+public class Fragment_0_CameraX_v2 extends Fragment {
     PreviewView previewView;//null ptr error
     private ImageCapture imageCapture;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
-
-    public Fragment_0_CameraX() {
-        // required empty public constructor.
+    public Fragment_0_CameraX_v2() {
+        // Required empty public constructor
     }
 
-    //from other act
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    //fragment's view
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tools_frag_camerax, container, false);
-        //TextView textView = view.findViewById(R.id.textView2);
 
-        //setContentView(R.layout.act_camerax);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.tools_frag_camerax, container, false);
 
         //getActivity()  vs getContext()??
         if (ContextCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.CAMERA ) != PackageManager.PERMISSION_GRANTED) {
@@ -72,8 +66,10 @@ public class Fragment_0_CameraX extends Fragment {
             }
         }, ContextCompat.getMainExecutor(view.getContext()));
 
-        return view;
+
+        return (ViewGroup) inflater.inflate(R.layout.tools_frag_camerax_v2, container, false);
     }
+
     void bindPreview(@NonNull ProcessCameraProvider cameraProvider) {
         Preview preview = new Preview.Builder()
                 .build();
