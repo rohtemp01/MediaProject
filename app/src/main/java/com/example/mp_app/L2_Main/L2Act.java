@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.mp_app.R;
-import com.example.mp_app.Tools.ViewPager.PagerAdapter;
+import com.example.mp_app.Tools.Deprecated.PagerAdapter;
 
 public class L2Act extends AppCompatActivity {
     Button btn;

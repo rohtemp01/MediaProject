@@ -1,4 +1,4 @@
-package com.example.mp_app.Tools.ViewPager;
+package com.example.mp_app.Tools.Deprecated;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

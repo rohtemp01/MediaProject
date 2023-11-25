@@ -2,8 +2,6 @@ package com.example.mp_app.Tools.ViewPager;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 
-import static androidx.core.content.FileProvider.Api21Impl.getExternalMediaDirs;
-
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,30 +26,27 @@ import androidx.lifecycle.LifecycleOwner;
 import com.example.mp_app.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
-import java.io.File;
 import java.util.concurrent.ExecutionException;
-public class Fragment_0_CameraX_v2 extends Fragment implements LifecycleOwner{
+public class Fragment_0_CameraX_v2 extends Fragment {
     PreviewView previewView;//null ptr error
     private ImageCapture imageCapture;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
+    ProcessCameraProvider myCameraProvider;
     LifecycleCameraController controller;
     public Fragment_0_CameraX_v2() {
         // Required empty public constructor
     }
 
     public void work(){
-        File file = new File(getExternalMediaDirs()[0], System.currentTimeMillis() + ".jpg");
         imageCapture.takePicture(ContextCompat.getMainExecutor(getContext()), new ImageCapture.OnImageCapturedCallback() {
             @Override
             public void onCaptureSuccess(@NonNull ImageProxy image) {
                 super.onCaptureSuccess(image);
                 // get and do with image
                 image.close();
+                System.out.println("work()");
             }
         });
-    }
-
-    private File[] getExternalMediaDirs() {
     }
 
     @Override
@@ -71,11 +66,14 @@ public class Fragment_0_CameraX_v2 extends Fragment implements LifecycleOwner{
 
         previewView = view.findViewById(R.id.previewView);
         controller = new LifecycleCameraController(getContext());
-        //controller.bind
+        controller.bindToLifecycle(this);
         cameraProviderFuture = ProcessCameraProvider.getInstance(view.getContext());
         cameraProviderFuture.addListener(() -> {
             try {
                 ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+                myCameraProvider = cameraProvider;
+
+
 
                 Preview preview = new Preview.Builder().build();
 
@@ -91,8 +89,16 @@ public class Fragment_0_CameraX_v2 extends Fragment implements LifecycleOwner{
         }, ContextCompat.getMainExecutor(view.getContext()));
 
         //
-        controller = new LifecycleCameraController(getContext());
-        controller.bindToLifecycle((LifecycleOwner) getContext());
+        //controller = new LifecycleCameraController(getContext());
+        //controller.bindToLifecycle((LifecycleOwner) getContext());
+//        cameraProvider = ProcessCameraProvider.getInstance(getContext());
+//        cameraProvider.addListener(()->{
+//            try{
+//
+//            } catch (Exception e){
+//
+//            }
+//        }, ContextCompat.getMainExecutor(getContext()));
         //
 
         return view;
@@ -109,10 +115,33 @@ public class Fragment_0_CameraX_v2 extends Fragment implements LifecycleOwner{
         preview.setSurfaceProvider(previewView.getSurfaceProvider());
 
         Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview);
+        myCameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview, imageCapture);
     }
-
+    public void onPause() {
+        super.onPause();
+        myCameraProvider.unbindAll();
+        System.out.println();
+        System.out.println("onPause()");
+        System.out.println();
+    }
+    public void onStop() {
+        System.out.println();
+        System.out.println("STOP()");
+        System.out.println();
+        super.onStop();
+    }
     public void onDestroyView() {
+        System.out.println();
+        System.out.println("VIEW DESTROY()");
+        System.out.println();
+        myCameraProvider.unbindAll();
         super.onDestroyView();
+    }
+    public void onDestroy() {
+        System.out.println();
+        System.out.println("DESTROY()");
+        System.out.println();
+        super.onDestroy();
     }
 
 //    public class CustomLifecycle  implements LifecycleOwner {
