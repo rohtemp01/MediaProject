@@ -10,6 +10,8 @@ import com.example.mp_app.L1_Intro.AuthAct;
 
 public class MainActivity extends AppCompatActivity {
     private final int SPLASH_DURATION = 2000;
+    public static int myFID =1;
+            //sharedPref.getInt("FID", -1);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

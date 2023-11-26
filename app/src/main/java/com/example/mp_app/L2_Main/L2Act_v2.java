@@ -16,7 +16,6 @@ public class L2Act_v2 extends FragmentActivity {
     private FragmentStateAdapter pagerAdapter; //error pos
     Button btn;
     Fragment_0_CameraX_v2 fragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +24,7 @@ public class L2Act_v2 extends FragmentActivity {
         viewPager2 = findViewById(R.id.view_pager); //error pos
         pagerAdapter = new Slider_PagerAdapter(this);
         viewPager2.setAdapter(pagerAdapter);
+
         //fragment = (Fragment_0_CameraX_v2) getSupportFragmentManager().findFragmentById(R.id.frag_camerax);
 
 //        btn = findViewById(R.id.button);

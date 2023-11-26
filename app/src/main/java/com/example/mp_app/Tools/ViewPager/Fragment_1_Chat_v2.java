@@ -1,5 +1,7 @@
 package com.example.mp_app.Tools.ViewPager;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +16,21 @@ import com.example.mp_app.Tools.RecyclerView.RecyclerAdapter;
 public class Fragment_1_Chat_v2 extends Fragment {
     RecyclerView recyclerViewUI;
     RecyclerAdapter recyclerAdapter;
+    SharedPreferences sharedPref;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_chatting, container, false);
         recyclerViewUI = view.findViewById(R.id.recyclerViewChatting);
+        Context context = getActivity();
+        recyclerAdapter = new RecyclerAdapter(context);
+        //sharedPref = context.getSharedPreferences(, Context.MODE_PRIVATE);
+
+        //
+        //int myValue = sharedPref.getInt("test",-1);
+        //System.out.println(myValue);
+        //
+
         return view;
     }
 }
