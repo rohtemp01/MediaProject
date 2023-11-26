@@ -30,18 +30,23 @@ android {
     buildFeatures { //cameraX
         viewBinding true
     }
+    packagingOptions {
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/DEPENDENCIES'
+        // ... exclude other specific entries if needed ...
+    }
 }
 
 dependencies {
     // Add the Firebase dependencies
-    implementation platform('com.google.firebase:firebase-bom:32.0.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth:22.0.0'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation platform('com.google.firebase:firebase-bom:32.1.0')
+    implementation 'com.google.cloud:google-cloud-translate:2.19.0'
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
