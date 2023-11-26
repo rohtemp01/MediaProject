@@ -21,6 +21,13 @@
         <activity
             android:name=".Tools.ViewPager.Fragment_1_Chat_v2"
             android:exported="false" />
+        <activity android:name=".L1_Intro.PhoneConnectAct"
+            android:exported="false" />
+        <activity android:name=".L1_Intro.AcceptAct"
+            android:exported="false" />
+        <activity
+            android:name=".L1_Intro.ProfileAct"
+            android:exported="false" />
         <activity
             android:name=".L1_Intro.SignInAct"
             android:exported="false" />
