@@ -45,6 +45,7 @@ public class Fragment_2_Dictionary extends Fragment {
         listView.setOnItemClickListener((parent, view1, position, id) -> {
             String selectedWord = arrayList.get(position);
             String translatedWord = TranslateUtil.translateText(selectedWord, "en");
+            System.out.println(translatedWord);
 
             // 번역된 결과를 리스트에 추가
             arrayList.add(translatedWord);

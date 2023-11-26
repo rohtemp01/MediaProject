@@ -24,8 +24,10 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 public class Fragment_0_CameraX_v2 extends Fragment {
     PreviewView previewUI;//null ptr error
+    Preview preview;
     private ImageCapture imageCapture;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
+    private ProcessCameraProvider cameraProvider;
     ProcessCameraProvider myCameraProvider;
     LifecycleCameraController lifecycleCameraController;
     public Fragment_0_CameraX_v2() {
@@ -55,11 +57,52 @@ public class Fragment_0_CameraX_v2 extends Fragment {
         View view = inflater.inflate(R.layout.tools_camerax, container, false);
 
         previewUI = view.findViewById(R.id.previewView);
+
+//        previewUI.setImplementationMode(PreviewView.ImplementationMode.COMPATIBLE);
+//        previewUI.setScaleType(PreviewView.ScaleType.FILL_CENTER);
+//
+//        Preview preview = new Preview.Builder()
+//                .setTargetRotation(previewUI.getDisplay().getRotation())
+//                .build();
+//        preview.setSurfaceProvider(previewUI.getSurfaceProvider());
+//
+//        cameraProviderFuture = ProcessCameraProvider.getInstance(getContext());
+//        try {
+//            cameraProviderFuture.addListener({cameraProvider = cameraProviderFuture.get()},ContextCompat.getMainExecutor(getContext()));
+//        } catch (ExecutionException e) {
+//            throw new RuntimeException(e);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+
         lifecycleCameraController = new LifecycleCameraController(view.getContext());
         lifecycleCameraController.bindToLifecycle(this);
-        lifecycleCameraController.setCameraSelector(CameraSelector.DEFAULT_BACK_CAMERA);
+        lifecycleCameraController.setCameraSelector(CameraSelector.DEFAULT_FRONT_CAMERA);
         previewUI.setController(lifecycleCameraController);
 
+        //previewUI = view.findViewById(R.id.previewView);
+//        previewUI = new PreviewView(getContext());
+//        previewUI.setImplementationMode(PreviewView.ImplementationMode.COMPATIBLE);
+//        previewUI.setScaleType(PreviewView.ScaleType.FILL_CENTER);
+//
+//        preview = new Preview.Builder().setTargetRotation(previewUI.getDisplay().getRotation()).build();
+//
+//
+//        lifecycleCameraController = new LifecycleCameraController(view.getContext());
+//        lifecycleCameraController.bindToLifecycle(this);
+//        lifecycleCameraController.setCameraSelector(CameraSelector.DEFAULT_FRONT_CAMERA);
+//
+//        cameraProviderFuture = ProcessCameraProvider.getInstance(view.getContext());
+//        cameraProviderFuture.addListener(()->{
+//            ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+//        });
+//
+//
+//        previewUI.setController(lifecycleCameraController);
+//
+//        imageCapture = new ImageCapture.Builder().build();
+//        imageCapture.setTargetRotation(Surface.ROTATION_90);
+//
 
         /*
         * //getActivity()  vs getContext()??
