@@ -29,21 +29,27 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         //System.out.println(FID);
 
-        for(int i =0; i <2;i++){
-            Chat_Data chatData = new Chat_Data();
-            chatData.chatFID = -1;
-            chatData.focused = false;
-            chatData.message = "Nice to meet you!";
-            recyclerData.add(chatData);
-            for(int j =0; j < 2 ;j++){
-                Chat_Data chatData2 = new Chat_Data();
-                chatData2.chatFID = 777;
-                chatData2.focused = false;
-                chatData2.message = "today is a good day";
-                recyclerData.add(chatData2);
-            }
-        }
+//        for(int i =0; i <2;i++){
+//            Chat_Data chatData = new Chat_Data();
+//            chatData.chatFID = -1;
+//            chatData.focused = false;
+//            chatData.message = "Nice to meet you!";
+//            recyclerData.add(chatData);
+//            for(int j =0; j < 2 ;j++){
+//                Chat_Data chatData2 = new Chat_Data();
+//                chatData2.chatFID = 777;
+//                chatData2.focused = false;
+//                chatData2.message = "today is a good day";
+//                recyclerData.add(chatData2);
+//            }
+//        }
         System.out.println("~~~data size: " + recyclerData.size());
+    }
+
+    public void send(String chat){
+        Chat_Data chatData = new Chat_Data(chat);
+        recyclerData.add(chatData);
+        notifyDataSetChanged();
     }
     @NonNull
     @Override
