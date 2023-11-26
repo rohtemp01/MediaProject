@@ -117,6 +117,7 @@ public class Fragment_0_CameraX_v2 extends Fragment {
         Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview);
         myCameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview, imageCapture);
     }
+    /*
     public void onPause() {
         super.onPause();
         myCameraProvider.unbindAll();
@@ -143,6 +144,7 @@ public class Fragment_0_CameraX_v2 extends Fragment {
         System.out.println();
         super.onDestroy();
     }
+    */
 
 //    public class CustomLifecycle  implements LifecycleOwner {
 //        private LifecycleRegistry lifecycleRegistry;
