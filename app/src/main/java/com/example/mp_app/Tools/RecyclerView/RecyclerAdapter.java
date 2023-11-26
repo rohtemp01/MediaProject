@@ -1,11 +1,15 @@
 package com.example.mp_app.Tools.RecyclerView;
 
 import android.content.Context;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -75,6 +79,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         //1. viewType 따라서 viewHolder 생성
         View view;
 
+
         switch(viewType){
             case CHAT_SELF:{
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatbox_self, parent, false);
@@ -136,6 +141,101 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             super(itemView);
 
             textViewMyChat = itemView.findViewById(R.id.textViewMyChat);
+            textViewMyChat.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+
+                    menu.clear();
+                    //Toast.makeText(context.getApplicationContext(), "onCreateAction",Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    //Toast.makeText(context.getApplicationContext(), "onPrepareActionMode",Toast.LENGTH_SHORT).show();
+                    final int selStart = textViewMyChat.getSelectionStart();
+                    final int selEnd = textViewMyChat.getSelectionEnd();
+
+                    int min = Math.max(0, Math.min(selStart, selEnd));
+                    int max = Math.max(0, Math.max(selStart, selEnd));
+                    final CharSequence selectedText = textViewMyChat.getText().subSequence(min, max);
+                    String word = (String) selectedText;
+
+//                    SharedPreferences sharedPref = context.getSharedPreferences("Dictionary", Context.MODE_PRIVATE);
+//                    sharedPref.edit().putString("word",word);
+
+
+                    Toast.makeText(context.getApplicationContext(), selectedText,Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                                        if (textViewMyChat.isFocused()) {
+                        final int selStart = textViewMyChat.getSelectionStart();
+                        final int selEnd = textViewMyChat.getSelectionEnd();
+
+                        int min = Math.max(0, Math.min(selStart, selEnd));
+                        int max = Math.max(0, Math.max(selStart, selEnd));
+                        final CharSequence selectedText = textViewMyChat.getText().subSequence(min, max);
+                        Toast.makeText(context.getApplicationContext(), selectedText,Toast.LENGTH_SHORT).show();
+                        mode.finish();
+                    }
+                    return true;
+                }
+
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+
+                }
+            });
+//            textViewMyChat.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+//                @Override
+//                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+//                    menu.add("가져오기!"); //choose any icon
+//                    // Remove the other options
+//                    menu.removeItem(android.R.id.selectAll);
+//                    menu.removeItem(android.R.id.cut);
+//                    menu.removeItem(android.R.id.copy);
+//                    return true;
+//                }
+//
+//                @Override
+//                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+//                    return true;
+//                }
+//
+//                @Override
+//                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+//                    System.out.println("!!! OHO");
+//                    if (textViewMyChat.isFocused()) {
+//                        final int selStart = textViewMyChat.getSelectionStart();
+//                        final int selEnd = textViewMyChat.getSelectionEnd();
+//
+//                        int min = Math.max(0, Math.min(selStart, selEnd));
+//                        int max = Math.max(0, Math.max(selStart, selEnd));
+//                        final CharSequence selectedText = textViewMyChat.getText().subSequence(min, max);
+//                        Toast.makeText(context.getApplicationContext(), selectedText,Toast.LENGTH_SHORT).show();
+//                        mode.finish();
+//                    }
+//                    return false;
+//                }
+//
+//                @Override
+//                public void onDestroyActionMode(ActionMode mode) {
+//
+//                }
+//            });
+
+//            textViewMyChat.setOnLongClickListener(new View.OnLongClickListener(){
+//
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    TextView textView = v.findViewById(R.id.textViewMyChat);
+//                    textView.startActionMode(textViewMyChat.getCustomInsertionActionModeCallback());
+//                    return false;
+//                }
+//            });
 //            textViewTime = itemView.findViewById(R.id.textViewTime);
 //            textViewDivideLine = itemView.findViewById(R.id.textViewDivideLine);
 //            imageProfile = itemView.findViewById(R.id.imageProfile);
