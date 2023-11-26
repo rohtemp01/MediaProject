@@ -2,8 +2,6 @@ package com.example.mp_app.L1_Intro;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mp_app.L2_Main.L2Act_v2;
 import com.example.mp_app.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -52,7 +53,7 @@ public class SignInAct extends AppCompatActivity {
     }
 
     private void startCoupleActivity() {
-        Intent intent = new Intent(SignInAct.this, CoupleAct.class);
+        Intent intent = new Intent(SignInAct.this, L2Act_v2.class);
         startActivity(intent);
         finish();
     }
