@@ -24,12 +24,9 @@ public class Fragment_1_Chat_v2 extends Fragment {
         recyclerViewUI = view.findViewById(R.id.recyclerViewChatting);
         Context context = getActivity();
         recyclerAdapter = new RecyclerAdapter(context);
-        //sharedPref = context.getSharedPreferences(, Context.MODE_PRIVATE);
+        recyclerViewUI.setAdapter(recyclerAdapter);
 
-        //
-        //int myValue = sharedPref.getInt("test",-1);
-        //System.out.println(myValue);
-        //
+
 
         return view;
     }

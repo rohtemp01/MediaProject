@@ -26,6 +26,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public RecyclerAdapter(Context context){
         this.context = context;
         myFID = context.getSharedPreferences("FID", Context.MODE_PRIVATE).getInt("MY_FID",-1);
+
         //System.out.println(FID);
 
         for(int i =0; i <2;i++){
@@ -42,6 +43,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 recyclerData.add(chatData2);
             }
         }
+        System.out.println("~~~data size: " + recyclerData.size());
     }
     @NonNull
     @Override
