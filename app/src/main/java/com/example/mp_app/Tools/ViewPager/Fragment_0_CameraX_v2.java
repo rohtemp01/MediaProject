@@ -108,13 +108,6 @@ public class Fragment_0_CameraX_v2 extends Fragment {
 
         return view;
     }
-
-    @Override
-    public void onDestroyView(){
-        super.onDestroyView();
-        myCameraProvider.unbindAll();
-    }
-
     void bindPreview(@NonNull ProcessCameraProvider cameraProvider) {
         Preview preview = new Preview.Builder()
                 .build();
