@@ -10,13 +10,14 @@ import java.util.List;
 
 public class Slider_PagerAdapter extends FragmentStateAdapter {
     private static final List<Fragment> fragments = new ArrayList<>();
-    private static final int NUM_PAGES = 2;
+    private static final int NUM_PAGES = 3;
     public Slider_PagerAdapter(FragmentActivity fa) {
         super(fa);
         System.out.println("~~~~~Slider_PagerAdapter(FragmentActivity fa) ");
+        fragments.add(new Fragment_2_Dictionary());
         fragments.add(new Fragment_0_CameraX_v2());
         fragments.add(new Fragment_1_Chat_v2());
-        fragments.add(new Fragment_2_Dictionary());
+
     }
 
     @NonNull

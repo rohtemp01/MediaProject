@@ -6,6 +6,7 @@
     tools:context=".Tools.ViewPager.Fragment_2_Dictionary">
 
     <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

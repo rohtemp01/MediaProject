@@ -24,6 +24,7 @@ public class L2Act_v2 extends FragmentActivity {
         viewPager2 = findViewById(R.id.view_pager); //error pos
         pagerAdapter = new Slider_PagerAdapter(this);
         viewPager2.setAdapter(pagerAdapter);
+        viewPager2.setCurrentItem(1);
 
         //fragment = (Fragment_0_CameraX_v2) getSupportFragmentManager().findFragmentById(R.id.frag_camerax);
 
