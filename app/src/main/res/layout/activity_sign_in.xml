@@ -1,10 +1,10 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/chat_bg"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.example.mp_app.L1_Intro.SignInAct">
 
     <EditText
@@ -17,8 +17,8 @@
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Password" />
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/buttonSignIn"

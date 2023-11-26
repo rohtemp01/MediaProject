@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/chat_bg"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context="com.example.mp_app.L1_Intro.ProfileAct">
 
