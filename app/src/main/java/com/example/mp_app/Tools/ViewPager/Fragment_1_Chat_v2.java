@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mp_app.R;
@@ -26,8 +27,13 @@ public class Fragment_1_Chat_v2 extends Fragment {
         View view = inflater.inflate(R.layout.frag_chatting, container, false);
         recyclerViewUI = view.findViewById(R.id.recyclerViewChatting);
         Context context = getActivity();
+
         recyclerAdapter = new RecyclerAdapter(context);
         recyclerViewUI.setAdapter(recyclerAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerViewUI.setLayoutManager(linearLayoutManager);
+
         sendBtn = view.findViewById(R.id.sendImgBtn);
         sendBtn.setOnClickListener(e->{
             EditText editText = view.findViewById(R.id.editTextChat);

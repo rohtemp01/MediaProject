@@ -50,6 +50,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         Chat_Data chatData = new Chat_Data(chat);
         recyclerData.add(chatData);
         notifyDataSetChanged();
+        System.out.println(recyclerData.size());
     }
     @NonNull
     @Override
