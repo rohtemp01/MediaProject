@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.mp_app.Tools.Deprecated.Fragment_0_CameraX_vdep;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,8 @@ public class Slider_PagerAdapter extends FragmentStateAdapter {
     private static final int NUM_PAGES = 2;
     public Slider_PagerAdapter(FragmentActivity fa) {
         super(fa);
-        fragments.add(new Fragment_0_CameraX_v2());
+        System.out.println("~~~~~Slider_PagerAdapter(FragmentActivity fa) ");
+        fragments.add(new Fragment_0_CameraX_vdep());
         fragments.add(new Fragment_1_Chat_v2());
     }
 

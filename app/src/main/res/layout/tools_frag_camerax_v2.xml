@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/frag_camerax"
-    tools:context=".Tools.ViewPager.Fragment_0_CameraX_v2">
+    tools:context=".Tools.Deprecated.Fragment_0_CameraX_vdep">
 
     <FrameLayout
         android:id="@+id/container"

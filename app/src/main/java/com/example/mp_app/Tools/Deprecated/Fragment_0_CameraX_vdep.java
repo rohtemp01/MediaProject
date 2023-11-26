@@ -1,5 +1,8 @@
-package com.example.mp_app.Tools.ViewPager;
+package com.example.mp_app.Tools.Deprecated;
 
+import static android.media.MediaRecorder.VideoSource.CAMERA;
+
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.LifecycleCameraController;
 import androidx.camera.view.PreviewView;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
@@ -22,13 +26,14 @@ import androidx.lifecycle.LifecycleOwner;
 import com.example.mp_app.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
-public class Fragment_0_CameraX_v2 extends Fragment {
-    PreviewView previewUI;//null ptr error
+import java.util.concurrent.ExecutionException;
+public class Fragment_0_CameraX_vdep extends Fragment {
+    PreviewView previewView;//null ptr error
     private ImageCapture imageCapture;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     ProcessCameraProvider myCameraProvider;
-    LifecycleCameraController lifecycleCameraController;
-    public Fragment_0_CameraX_v2() {
+    LifecycleCameraController controller;
+    public Fragment_0_CameraX_vdep() {
         // Required empty public constructor
     }
 
@@ -54,22 +59,14 @@ public class Fragment_0_CameraX_v2 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tools_camerax, container, false);
 
-        previewUI = view.findViewById(R.id.previewView);
-        lifecycleCameraController = new LifecycleCameraController(view.getContext());
-        lifecycleCameraController.bindToLifecycle(this);
-        lifecycleCameraController.setCameraSelector(CameraSelector.DEFAULT_BACK_CAMERA);
-        previewUI.setController(lifecycleCameraController);
-
-
-        /*
-        * //getActivity()  vs getContext()??
+        //getActivity()  vs getContext()??
         if (ContextCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.CAMERA ) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[] {android.Manifest.permission.CAMERA}, CAMERA);
         }
 
-
-        lifecycleCameraController = new LifecycleCameraController(getContext());
-        lifecycleCameraController.bindToLifecycle(this);
+        previewView = view.findViewById(R.id.previewView);
+        controller = new LifecycleCameraController(getContext());
+        controller.bindToLifecycle(this);
         cameraProviderFuture = ProcessCameraProvider.getInstance(view.getContext());
         cameraProviderFuture.addListener(() -> {
             try {
@@ -104,8 +101,6 @@ public class Fragment_0_CameraX_v2 extends Fragment {
 //        }, ContextCompat.getMainExecutor(getContext()));
         //
 
-        * */
-
         return view;
     }
 
@@ -123,7 +118,7 @@ public class Fragment_0_CameraX_v2 extends Fragment {
                 .requireLensFacing(CameraSelector.LENS_FACING_BACK)
                 .build();
 
-        preview.setSurfaceProvider(previewUI.getSurfaceProvider());
+        preview.setSurfaceProvider(previewView.getSurfaceProvider());
 
         Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview);
         myCameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview, imageCapture);

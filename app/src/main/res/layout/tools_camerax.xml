@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tools.ViewPager.Fragment_0_CameraX_v2">
+    tools:context=".Tools.Deprecated.Fragment_0_CameraX_vdep">
 
     <FrameLayout
         android:id="@+id/container"
