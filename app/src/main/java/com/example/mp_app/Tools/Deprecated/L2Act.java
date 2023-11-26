@@ -1,4 +1,4 @@
-package com.example.mp_app.L2_Main;
+package com.example.mp_app.Tools.Deprecated;
 
 import android.os.Bundle;
 import android.widget.Button;

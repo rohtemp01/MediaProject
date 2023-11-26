@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -29,7 +28,7 @@
             android:name=".L1_Intro.SignUpAct"
             android:exported="false" />
         <activity
-            android:name=".L2_Main.L2Act"
+            android:name=".Tools.Deprecated.L2Act"
             android:exported="false" />
         <activity
             android:name=".Tools.Deprecated.Fragment_1_Chat"
