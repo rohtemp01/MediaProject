@@ -21,10 +21,13 @@ public class Fragment_1_Chat_v2 extends Fragment {
     RecyclerAdapter recyclerAdapter;
     ImageButton sendBtn;
     SharedPreferences sharedPref;
+    int myFID;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_chatting, container, false);
+        sharedPref = getContext().getSharedPreferences("My_Data",Context.MODE_PRIVATE);
+        myFID = sharedPref.getInt("FID",-1);
         recyclerViewUI = view.findViewById(R.id.recyclerViewChatting);
         Context context = getActivity();
 
@@ -38,7 +41,8 @@ public class Fragment_1_Chat_v2 extends Fragment {
         sendBtn.setOnClickListener(e->{
             EditText editText = view.findViewById(R.id.editTextChat);
             String chat = editText.getText().toString();
-            recyclerAdapter.send(chat);
+            editText.setText("");
+            recyclerAdapter.send(chat, myFID);
         });
 
         return view;

@@ -25,8 +25,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private Context context;
     public RecyclerAdapter(Context context){
         this.context = context;
+        //SharedPreferences sharedPreferences = context.getSharedPreferences("My_Data",Context.MODE_PRIVATE);
+        //sharedPreferences.edit().putInt("FID",777);
+        //sharedPreferences.edit().apply();
         myFID = context.getSharedPreferences("FID", Context.MODE_PRIVATE).getInt("MY_FID",-1);
 
+        Chat_Data chatData = new Chat_Data("안녕! 오늘 기분이 어때?");
+        chatData.chatFID = 1;
+        recyclerData.add(chatData);
+
+        chatData = new Chat_Data("나쁘지 않아. 오늘 날씨가 좋은걸");
+        chatData.chatFID = myFID;
+        recyclerData.add(chatData);
+
+        chatData = new Chat_Data("맞아. 요즘 너의 강아지는 어때?");
+        chatData.chatFID = 1;
+        recyclerData.add(chatData);
+
+        notifyDataSetChanged();
         //System.out.println(FID);
 
 //        for(int i =0; i <2;i++){
@@ -46,8 +62,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         System.out.println("~~~data size: " + recyclerData.size());
     }
 
-    public void send(String chat){
+    public void send(String chat, int chatFID){
         Chat_Data chatData = new Chat_Data(chat);
+        chatData.chatFID = chatFID;
         recyclerData.add(chatData);
         notifyDataSetChanged();
         System.out.println(recyclerData.size());

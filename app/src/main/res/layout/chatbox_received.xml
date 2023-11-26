@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imageProfile"
         android:layout_toEndOf="@+id/imageProfile"
-
+        android:textIsSelectable="true"
         android:layout_below="@+id/textViewDivideLine"
         android:layout_margin="4dp"
         android:background="@android:color/holo_orange_light"
