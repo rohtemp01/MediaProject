@@ -20,11 +20,11 @@ public class AuthAct extends AppCompatActivity {
         signInBtn = findViewById(R.id.signIn_btn);
         cheatKey = findViewById(R.id.cheat_btn);
         signUpBtn.setOnClickListener(event -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this,SignUpAct.class);
             startActivity(intent);
         });
         signInBtn.setOnClickListener(e -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this, SignInAct.class);
             startActivity(intent);
         });
         cheatKey.setOnClickListener(e->{
