@@ -17,6 +17,7 @@
     <TextView
         android:id="@+id/text_view_right"
         android:layout_width="wrap_content"
+        android:text="English word"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_gravity="right"
