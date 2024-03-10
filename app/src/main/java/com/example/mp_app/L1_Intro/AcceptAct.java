@@ -102,7 +102,7 @@ public class AcceptAct extends AppCompatActivity {
 
     }
 
-    String hours;
+    String hours; //123
     private void timer() {
         countDown = new CountDownTimer(1000 * 60 * 60 * 24, 100) {
             @Override
